@@ -1,0 +1,26 @@
+{
+    "manifest_version": 3,
+    "name": "Search Assistant",
+    "version": "1.0",
+    "description": "Suggests tools based on your search queries.",
+    "permissions": ["activeTab", "storage", "scripting"],
+    "host_permissions": ["*://www.google.com/*", "*://www.bing.com/*"],
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["*://www.google.com/search*", "*://www.bing.com/search*"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_popup": "popup.html",
+      "default_icon": {
+        "16": "icons/Eagle16.png",
+        "48": "icons/Eagle48.png",
+        "128": "icons/Eagle128.png"
+      }
+    }
+  }
+  
